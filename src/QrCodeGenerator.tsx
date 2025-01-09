@@ -14,8 +14,8 @@ const QrCodeGenerator = () => {
 
   const handleGenerate = () => {
     try {
-      const validatedUrl = new URL(url).toString(); // Validate and convert URL to string
-      localStorage.setItem("url", validatedUrl); // Save the validated URL to localStorage
+      const validatedUrl = new URL(url).toString(); 
+      localStorage.setItem("url", validatedUrl); 
       navigate("/qrcode");
     } catch (error) {
       console.log(error);

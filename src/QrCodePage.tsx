@@ -9,24 +9,35 @@ const QrCodePage = () => {
     console.log('URL from localStorage:', url);
 
     if (url && qrCodeRef.current) {
-      // Create a canvas element
       const canvas = document.createElement('canvas');
-      const size = 220; // Set the desired size of the QR code
-
-      // Set the size of the canvas
+      const size = 250;
       canvas.width = size;
       canvas.height = size;
 
-      // Generate the QR code onto the new canvas
-      QRCode.toCanvas(canvas, url, { width: size, errorCorrectionLevel: 'H' }, (error) => {
+      QRCode.toCanvas(canvas, url, { errorCorrectionLevel: 'H' }, (error) => {
         if (error) {
           console.error('Error generating QR code:', error);
         } else {
-          console.log('QR code generated successfully');
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#8e44ad'); 
+            gradient.addColorStop(1, '#3498db'); 
 
-          // Append the canvas to the div
-          qrCodeRef.current!.innerHTML = ''; // Clear any previous canvas
-          qrCodeRef.current!.appendChild(canvas);
+            const imageData = ctx.getImageData(0, 0, size, size);
+            const data = imageData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+              if (data[i] === 0 && data[i + 1] === 0 && data[i + 2] === 0 && data[i + 3] === 255) {
+               
+                ctx.fillStyle = gradient;
+                ctx.fillRect((i / 4) % size, Math.floor((i / 4) / size), 1, 1);
+              }
+            }
+
+            qrCodeRef.current!.innerHTML = '';
+            qrCodeRef.current!.appendChild(canvas);
+          }
         }
       });
     } else {
@@ -73,12 +84,12 @@ const QrCodePage = () => {
       </div>
       <div className="w-72 h-72 border rounded-full flex flex-col-reverse justify-center items-center bg-[#F8FAFC1A]">
         <div className="w-60 h-60 flex justify-center items-center bg-[#FAFAF9] rounded-3xl">
-          <div className="w-48 h-48 flex justify-center items-center" ref={qrCodeRef}></div>
+          <div className="w-48 h-48 border-2 border-red-500 flex justify-center items-center" ref={qrCodeRef}></div>
         </div>
       </div>
       <div className="flex gap-4 justify-center items-center mt-10">
         <button onClick={handleDownload} className="py-3 px-7 text-white border font-semibold rounded-xl bg-[#263FA9] outline-none border-none flex gap-3 justify-center items-center">
-          Download <img src="/Load_circle_duotone.svg" alt="Download" /> 
+          Download <img src="/Load_circle_duotone.svg" alt="Download" />
         </button>
         <button onClick={handleShare} className="py-3 px-8 text-white border font-semibold rounded-xl bg-[#263FA9] outline-none border-none flex gap-3 justify-center items-center">
           Share <img src="/link_alt.svg" alt="Share" />
