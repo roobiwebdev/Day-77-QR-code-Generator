@@ -23,7 +23,7 @@ const QrCodeGenerator = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="w-full flex flex-col justify-center items-center h-screen">
       <div className="w-full flex flex-col justify-center items-center z-10 text-white">
         <div className="mb-10 cursor-pointer">
           <img src="src/assets/Logo.svg" alt="Logo" />
@@ -41,7 +41,7 @@ const QrCodeGenerator = () => {
             onClick={handleGenerate}
             className="absolute right-6 sm:right-10 sm:top-2 py-2.5 px-4 sm:py-3 sm:px-6 lg:py-4 lg:px-7 border font-semibold rounded-xl bg-[#263FA9] outline-none border-none"
           >
-            Generate QR Code
+            QR Code
           </button>
         </div>
       </div>

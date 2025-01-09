@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import QRCode from 'qrcode';
 
 const QrCodePage = () => {
@@ -13,8 +13,12 @@ const QrCodePage = () => {
       const canvas = document.createElement('canvas');
       const size = 220; // Set the desired size of the QR code
 
+      // Set the size of the canvas
+      canvas.width = size;
+      canvas.height = size;
+
       // Generate the QR code onto the new canvas
-      QRCode.toCanvas(canvas, url, { width: size, height: size, errorCorrectionLevel: 'H' }, (error) => {
+      QRCode.toCanvas(canvas, url, { width: size, errorCorrectionLevel: 'H' }, (error) => {
         if (error) {
           console.error('Error generating QR code:', error);
         } else {
