@@ -18,7 +18,7 @@ const QrCodeGenerator = () => {
       localStorage.setItem("url", validatedUrl); // Save the validated URL to localStorage
       navigate("/qrcode");
     } catch (error) {
-      console.error("Invalid URL");
+      console.log(error);
     }
   };
 
