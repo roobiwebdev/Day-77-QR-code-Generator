@@ -69,7 +69,7 @@ const QrCodePage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="absolute top-12 cursor-pointer">
-        <img src="src/assets/Logo.svg" alt="Logo" />
+        <img src="./public/Logo.svg" alt="Logo" />
       </div>
       <div className="w-72 h-72 border rounded-full flex flex-col-reverse justify-center items-center bg-[#F8FAFC1A]">
         <div className="w-60 h-60 flex justify-center items-center bg-[#FAFAF9] rounded-3xl">
@@ -78,10 +78,10 @@ const QrCodePage = () => {
       </div>
       <div className="flex gap-4 justify-center items-center mt-10">
         <button onClick={handleDownload} className="py-3 px-7 text-white border font-semibold rounded-xl bg-[#263FA9] outline-none border-none flex gap-3 justify-center items-center">
-          Download <img src="src/assets/Load_circle_duotone.svg" alt="Download" />
+          Download <img src="./public/Load_circle_duotone.svg" alt="Download" /> 
         </button>
         <button onClick={handleShare} className="py-3 px-8 text-white border font-semibold rounded-xl bg-[#263FA9] outline-none border-none flex gap-3 justify-center items-center">
-          Share <img src="src/assets/link_alt.svg" alt="Share" />
+          Share <img src="./public/link_alt.svg" alt="Share" />
         </button>
       </div>
     </div>

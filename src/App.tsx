@@ -8,7 +8,7 @@ const App = () => {
       <div className="h-screen flex justify-center items-center relative">
         <div className="w-full h-screen absolute top-0 -z-10">
           <img
-            src="src/assets/qa-bg.jpg"
+            src="./public/qa-bg.jpg"
             alt=""
             className="object-cover w-full h-full"
           />

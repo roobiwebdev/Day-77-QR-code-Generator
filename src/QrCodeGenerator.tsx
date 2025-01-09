@@ -26,7 +26,7 @@ const QrCodeGenerator = () => {
     <div className="w-full flex flex-col justify-center items-center h-screen">
       <div className="w-full flex flex-col justify-center items-center z-10 text-white">
         <div className="mb-10 cursor-pointer">
-          <img src="src/assets/Logo.svg" alt="Logo" />
+          <img src="./public/Logo.svg" alt="Logo" />
         </div>
         <div className="w-full relative flex flex-col justify-center items-center md:w-[700px]">
           <input
