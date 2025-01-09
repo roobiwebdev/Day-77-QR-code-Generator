@@ -84,7 +84,7 @@ const QrCodePage = () => {
       </div>
       <div className="w-72 h-72 border rounded-full flex flex-col-reverse justify-center items-center bg-[#F8FAFC1A]">
         <div className="w-60 h-60 flex justify-center items-center bg-white rounded-3xl">
-          <div className="w-48 h-48 border-2 border-red-500 flex justify-center items-center" ref={qrCodeRef}></div>
+          <div className="w-48 h-48 flex justify-center items-center" ref={qrCodeRef}></div>
         </div>
       </div>
       <div className="flex gap-4 justify-center items-center mt-10">
